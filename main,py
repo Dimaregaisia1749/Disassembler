@@ -1,7 +1,0 @@
-a = '100090002FEF35EA4EE0215030404040E1F700C0FC'
-sm = 0
-for i in range(len(a)//2):
-    b = a[i*2:i*2+2]
-    sm += int(b, 16)
-    print(sm)
-print(sm%256)
