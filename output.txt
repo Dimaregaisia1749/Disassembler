@@ -37,7 +37,7 @@ c:	0c 94 3e 00	jmp	0x7c
 82:	81 e0		ldi	r24, 0x01
 84:	91 e0		ldi	r25, 0x01
 86:	89 27		eor	r24, r25
-88:	11 f0		brbs	0x01, 0x04
+88:	11 f0		brbs	0x01, .+04
 8a:	2a 9a		sbi	0x05, 0x02
 8c:	01 c0		rjmp	.+2
 8e:	2a 98		cbi	0x05, 0x02

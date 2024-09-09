@@ -34,7 +34,7 @@ def find_command(hex_code, starting_byte):
     for symb, param in params.items():
         if symb in ('d', 'r'):
             clear_params.append('r' + str(int(param, 16)))
-        elif command.split()[0] == 'rjmp':
+        elif command.split()[0] in ('rjmp', 'breq', 'bren', 'brbs') and symb == 'k':
             clear_params.append('.' + param[0] + str(abs(int(param, 16))))
         else:
             clear_params.append(param)
@@ -65,7 +65,7 @@ def get_params(command, byte, mnemonica, offset):
                 value_of_param += byte[i]
 
         sign = ''
-        if command.split()[0].replace('*', '') in ('rjmp', 'breq', 'bren'):
+        if command.split()[0].replace('*', '') in ('rjmp', 'breq', 'bren', 'brbs') and symb == 'k':
             if value_of_param[0] == '1':
                 value_of_param = int(value_of_param.replace('1', '_').replace('0', '1').replace('_', '0'), 2)
                 value_of_param = bin(value_of_param+1)
