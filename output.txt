@@ -31,25 +31,24 @@ c:	0c 94 3e 00	jmp	0x7c
 70:	de bf		out	0x3e, r29
 72:	cd bf		out	0x3d, r28
 74:	0e 94 40 00	call	0x80
-78:	0c 94 52 00	jmp	0xa4
+78:	0c 94 51 00	jmp	0xa2
 7c:	0c 94 00 00	jmp	0x00
-80:	22 9a		sbi	0x04, 0x02
+80:	3d 9a		sbi	0x07, 0x05
 82:	81 e0		ldi	r24, 0x01
 84:	91 e0		ldi	r25, 0x01
 86:	89 27		eor	r24, r25
 88:	11 f0		brbs	0x01, .+04
-8a:	2a 9a		sbi	0x05, 0x02
+8a:	45 9a		sbi	0x08, 0x05
 8c:	01 c0		rjmp	.+2
-8e:	2a 98		cbi	0x05, 0x02
-90:	25 e6		ldi	r18, 0x65
-92:	36 e7		ldi	r19, 0x76
-94:	41 e2		ldi	r20, 0x21
+8e:	45 98		cbi	0x08, 0x05
+90:	20 e8		ldi	r18, 0x80
+92:	3a e6		ldi	r19, 0x6a
+94:	4d e1		ldi	r20, 0x1d
 96:	21 50		subi	r18, 0x01
 98:	30 40		sbci	r19, 0x00
 9a:	40 40		sbci	r20, 0x00
-9c:	e1 f7		brbc	0x01, 0xf8
-9e:	00 c0		rjmp	.+0
-a0:	00 c0		rjmp	.+0
-a2:	f1 cf		rjmp	.-30
-a4:	f8 94		bclr	0x07
-a6:	ff cf		rjmp	.-2
+9c:	e1 f7		brbc	0x01, .-08
+9e:	00 00		nop
+a0:	f2 cf		rjmp	.-28
+a2:	f8 94		bclr	0x07
+a4:	ff cf		rjmp	.-2
